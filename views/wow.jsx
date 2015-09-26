@@ -40,6 +40,7 @@ var Component = React.createClass({
             <Layout>
                 <h1>WoW</h1>
                 <ArticleList data={data}></ArticleList>
+
             </Layout>
         );
     }

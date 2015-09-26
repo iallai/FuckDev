@@ -2,8 +2,22 @@ var React = require('react');
 var Layout = require('./layout.jsx');
 
 var FriendsList = React.createClass({
-    render: function () {
 
+
+    render: function () {
+        var usersList = this.props.users.map(function (item) {
+            var online='离线';
+            if(item.online==1){
+                online='在线'
+
+            }
+            return (
+                <ul>
+                    <li>  {item.name} [wow][{online}]    <a href="#">chat</a> <a href="#">voice</a> <a href="#">上线push</a></li>
+                </ul>
+
+            );
+        });
         return (
           <div>在线好友列表1
 <select>
@@ -13,9 +27,7 @@ var FriendsList = React.createClass({
 
 
 </select>
-    <ul>
-    <li>  iallai [wow][在线]    <a href="#">chat</a> <a href="#">voice</a> <a href="#">上线push</a></li>
-    </ul>
+              {usersList}
           </div>
 
         );
@@ -32,7 +44,7 @@ var Component = React.createClass({
                 </nav>
                 {this.props.children}
                 <hr />
-                <FriendsList></FriendsList>
+                <FriendsList users={this.props.users}></FriendsList>
             </Layout>
         );
     }

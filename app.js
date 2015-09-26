@@ -60,20 +60,31 @@ server.register(Vision, function (err) {
         method: 'GET',
         path: '/battle',
         handler: function (request, reply) {
-
-            reply.view('battle');
+            var db = request.server.plugins['hapi-sequelized'].db.sequelize;
+            db.query("SELECT * FROM `characters`", { type: db.QueryTypes.SELECT})
+                .then(function(users) {
+                    reply.view('battle',{users:users});
+            });
         }
     });
     server.route({
         method: 'GET',
         path: '/battle/wow',
         handler: function (request, reply) {
+            var db = request.server.plugins['hapi-sequelized'].db.sequelize;
+            //db.query("SELECT * FROM `characters`", { type: db.QueryTypes.SELECT})
+            //    .then(function(users) {
+                    reply.view('wow');
+                    //console.log(users)
+                //});
 
-            reply.view('wow');
+
 
 
         }
     });
+
+
     server.route({
         method: 'GET',
         path: '/battle/dota2',
