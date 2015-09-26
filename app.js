@@ -8,6 +8,31 @@ server.connection({
   host: '0.0.0.0',
   port: 8000
 });
+server.register(
+    [
+        {
+            register: require('hapi-sequelized'),
+            options: {
+                database: 'tchar',
+                user: 'root',
+                pass: 'zxl223322',
+                dialect: 'mysql',
+                port: 3306
+                //models: 'models/**/*.js',
+                //sequelize: {
+                //    define: {
+                //        underscoredAll: true
+                //    }
+                //}
+            }
+        },
+    ], function(err) {
+        if (err) {
+            console.error('failed to load plugin');
+        }
+
+    }
+);
 server.register(Vision, function (err) {
 
     if (err) {
@@ -43,24 +68,9 @@ server.register(Vision, function (err) {
         method: 'GET',
         path: '/battle/wow',
         handler: function (request, reply) {
-          server.register({
-              register: require('hapi-sequelize'),
-              options: {
-                  database: 'myDatabase',
-                  username: null,
-                  password: null,
-                  host: 'localhost',
-                  port: 3306,
 
-              }
-          }, function(err) {
-              if (err) {
-                  server.log('hapi-sequelize error: ' + err);
-                  throw err;
-              }
+            reply.view('wow');
 
-              reply.view('wow');
-          });
 
         }
     });
