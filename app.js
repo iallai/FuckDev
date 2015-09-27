@@ -101,3 +101,6 @@ server.register(Vision, function (err) {
         console.log('Server is listening at ' + server.info.uri);
     });
 });
+
+
+

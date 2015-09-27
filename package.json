@@ -14,10 +14,12 @@
     "hapi-sequelized": "^2.2.1",
     "mysql": "^2.9.0",
     "react": "^0.13.3",
+    "react-document-meta": "^1.1.0",
     "sequelize": "^3.9.0"
   },
   "devDependencies": {
     "code": "^1.x.x",
+    "electron-prebuilt": "^0.33.3",
     "inert": "^3.x.x",
     "jsx-loader": "^0.13.x",
     "lab": "^5.x.x",
