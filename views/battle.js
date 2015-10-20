@@ -1,20 +1,32 @@
 var Layout = require('./layout.jsx');
 
 var FriendsList = React.createClass({displayName: "FriendsList",
-    render: function () {
 
+
+    render: function () {
+        var usersList = this.props.users.map(function (item) {
+            var online='离线';
+            if(item.online==1){
+                online='在线'
+
+            }
+            return (
+                React.createElement("ul", null, 
+                    React.createElement("li", null, "  ", item.name, " 种族：", item.race, " ", item.level, "[wow][", online, "]    ", React.createElement("a", {href: "#"}, "chat"), " ", React.createElement("a", {href: "#"}, "voice"), " ", React.createElement("a", {href: "#"}, "上线push"))
+                )
+
+            );
+        });
         return (
           React.createElement("div", null, "在线好友列表", 
-React.createElement("select", null, 
-React.createElement("option", null, "所有"), 
-React.createElement("option", null, "wow"), 
-React.createElement("option", null, "dota")
+            React.createElement("select", null, 
+            React.createElement("option", null, "所有"), 
+            React.createElement("option", null, "wow"), 
+            React.createElement("option", null, "dota")
 
 
-), 
-    React.createElement("ul", null, 
-    React.createElement("li", null, "  iallai [wow][在线]    ", React.createElement("a", {href: "#"}, "chat"), " ", React.createElement("a", {href: "#"}, "voice"), " ", React.createElement("a", {href: "#"}, "上线push"))
-    )
+            ), 
+              usersList
           )
 
         );
@@ -31,7 +43,7 @@ var Component = React.createClass({displayName: "Component",
                 ), 
                 this.props.children, 
                 React.createElement("hr", null), 
-                "\b", React.createElement(FriendsList, null)
+                "\b", React.createElement(FriendsList, {users: this.props.users})
             )
         );
     }
