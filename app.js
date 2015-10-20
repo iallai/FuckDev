@@ -47,27 +47,7 @@ server.register(Vision, function (err) {
         method: 'GET',
         path: '/',
         handler: function (request, reply) {
-          var appContext = {
-             };
-             var renderOpts = {
-                 runtimeOptions: {
-                     renderMethod: 'renderToString',
-                     encoding:'utf8'
-                 }
-             };
-
-             server.render('app', appContext, renderOpts, function (err, appOutput) {
-
-                 var htmlContext = {
-                     remount: appOutput,
-                     state: 'window.state = ' + JSON.stringify(appContext) + ';'
-                 };
-
-                 server.render('index', htmlContext, function (err, htmlOutput) {
-
-                     reply(htmlOutput);
-                 });
-             });
+            reply.view('wow');
         }
     });
 
@@ -86,16 +66,7 @@ server.register(Vision, function (err) {
         method: 'GET',
         path: '/battle/wow',
         handler: function (request, reply) {
-            var db = request.server.plugins['hapi-sequelized'].db.sequelize;
-            //db.query("SELECT * FROM `characters`", { type: db.QueryTypes.SELECT})
-            //    .then(function(users) {
                     reply.view('wow');
-                    //console.log(users)
-                //});
-
-
-
-
         }
     });
 
