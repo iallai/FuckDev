@@ -22,6 +22,10 @@ var FriendsList = React.createClass({
 
               klass='DK'
             }
+            else if(item.class=='2'){
+
+                klass='QS'
+            }
 
             var race=item.race;
             if(item.race=='5'){
