@@ -12,14 +12,14 @@ var FriendsList = React.createClass({displayName: "FriendsList",
             }
             return (
                 React.createElement("ul", null, 
-                    React.createElement("li", null, "  ", item.name, "[种族", item.race, "][等级", item.level, "][wow][", online, "]    ", React.createElement("a", {href: "#"}, "chat"), " ", React.createElement("a", {href: "#"}, "voice"), " ", React.createElement("a", {href: "#"}, "上线push"))
+                    React.createElement("li", null, "  ", item.name, "[职业", item.class, "][种族", item.race, "][等级", item.level, "][wow][", online, "]    ", React.createElement("a", {href: "#"}, "chat"), " ", React.createElement("a", {href: "#"}, "voice"), " ", React.createElement("a", {href: "#"}, "上线push"))
                 )
 
             );
         });
         return (
           React.createElement("div", null, "在线好友列表", 
-          
+
               usersList
           )
 
