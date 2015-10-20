@@ -20,13 +20,13 @@ var FriendsList = React.createClass({
         });
         return (
           <div>在线好友列表1
-<select>
-<option>所有</option>
-<option>wow</option>
-<option>dota</option>
+            <select>
+            <option>所有</option>
+            <option>wow</option>
+            <option>dota</option>
 
 
-</select>
+            </select>
               {usersList}
           </div>
 

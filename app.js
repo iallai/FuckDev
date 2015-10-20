@@ -14,10 +14,11 @@ server.register(
             register: require('hapi-sequelized'),
             options: {
                 database: 'tchar',
-                user: 'root',
-                pass: 'zxl223322',
+                user: 'reader',
+                pass: 'fuckshitcomeonbaby',
                 dialect: 'mysql',
-                port: 3306
+                port: 3306,
+                 host: '119.18.194.6',
                 //models: 'models/**/*.js',
                 //sequelize: {
                 //    define: {
@@ -61,7 +62,7 @@ server.register(Vision, function (err) {
         path: '/battle',
         handler: function (request, reply) {
             var db = request.server.plugins['hapi-sequelized'].db.sequelize;
-            db.query("SELECT * FROM `characters`", { type: db.QueryTypes.SELECT})
+            db.query("SELECT account,class,race,name,online,level FROM `characters` Where online = 1", { type: db.QueryTypes.SELECT})
                 .then(function(users) {
                     reply.view('battle',{users:users});
             });
@@ -101,6 +102,3 @@ server.register(Vision, function (err) {
         console.log('Server is listening at ' + server.info.uri);
     });
 });
-
-
-
