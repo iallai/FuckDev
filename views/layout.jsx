@@ -1,8 +1,11 @@
-
-
 var React = require('react');
 var  DocumentMeta =require('react-document-meta');
 var Component = React.createClass({
+
+    componentDidMount: function () {
+        console.log("222")
+    },
+
     render: function () {
       var metaData = {
            title: 'Some Meta Title',
@@ -16,8 +19,10 @@ var Component = React.createClass({
            }
          };
 
-        var ss=  <DocumentMeta {...metaData} />
-        console.log(ss);
+        var ss=  <DocumentMeta {...metaData} />;
+        var oMeta = document.createElement('meta');
+        oMeta.charset = 'utf-8';
+        document.getElementsByTagName('head')[0].appendChild(oMeta);
         return (
             <div>
 

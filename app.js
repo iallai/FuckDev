@@ -18,13 +18,8 @@ server.register(
                 pass: 'fuckshitcomeonbaby',
                 dialect: 'mysql',
                 port: 3306,
-                 host: '119.18.194.6',
-                //models: 'models/**/*.js',
-                //sequelize: {
-                //    define: {
-                //        underscoredAll: true
-                //    }
-                //}
+                 host: '119.18.194.6'
+
             }
         },
     ], function(err) {
