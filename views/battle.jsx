@@ -22,11 +22,35 @@ var FriendsList = React.createClass({
 
               klass='DK'
             }
+            else if(item.class=='5'){
+
+                klass='MS'
+            }
+            else if(item.class=='9'){
+
+                klass='SS'
+            }
+            else if(item.class=='11'){
+
+                klass='XD'
+            }
+            else if(item.class=='4'){
+
+                klass='DZ'
+            }
+            else if(item.class=='3'){
+
+                klass='LR'
+            }
+
             else if(item.class=='2'){
 
                 klass='QS'
             }
+            else if(item.class=='1'){
 
+                klass='ZS'
+            }
             var race=item.race;
             if(item.race=='5'){
                   race='亡灵'
@@ -37,6 +61,14 @@ var FriendsList = React.createClass({
             }
             else if(item.race=='10'){
                   race='血精灵'
+
+            }
+            else if(item.race=='6'){
+                  race='NTR'
+
+            }
+            else if(item.race=='2'){
+                race='兽人'
 
             }
             return (
