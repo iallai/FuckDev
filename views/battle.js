@@ -10,9 +10,33 @@ var FriendsList = React.createClass({displayName: "FriendsList",
                 online='在线'
 
             }
+            var klass=item.class;
+            if(item.class=='8'){
+                  klass='法爷'
+
+            }else if(item.class=='7'){
+
+              klass='萨大爷'
+            }else if(item.class=='6'){
+
+              klass='DK'
+            }
+
+            var race=item.race;
+            if(item.race=='5'){
+                  race='亡灵'
+
+            }else if(item.race=='8'){
+                  race='巨魔'
+
+            }
+            else if(item.race=='10'){
+                  race='血精灵'
+
+            }
             return (
                 React.createElement("ul", null, 
-                    React.createElement("li", null, "  ", item.name, "[职业", item.class, "][种族", item.race, "][等级", item.level, "][wow][", online, "]    ", React.createElement("a", {href: "#"}, "chat"), " ", React.createElement("a", {href: "#"}, "voice"), " ", React.createElement("a", {href: "#"}, "上线push"))
+                    React.createElement("li", null, " #", item.account, " ", item.name, "[等级", item.level, "] [职业:", klass, "] [种族:", race, "]  ", React.createElement("a", {href: "#"}, "chat"), " ", React.createElement("a", {href: "#"}, "voice"), " ", React.createElement("a", {href: "#"}, "上线push"))
                 )
 
             );

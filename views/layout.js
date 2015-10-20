@@ -24,7 +24,10 @@ var Component = React.createClass({displayName: "Component",
           React.createElement("html", null, 
                           React.createElement("head", null, 
                               React.createElement("meta", {charSet: "utf-8"}), 
+
+                              React.createElement("meta", {name: "viewport", content: "width=device-width, initial-scale=1.0"}), 
                               React.createElement("title", null, "战不解释")
+                            
                           ), 
                           React.createElement("body", null, 
                           React.createElement("div", null, 

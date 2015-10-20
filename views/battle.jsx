@@ -11,9 +11,33 @@ var FriendsList = React.createClass({
                 online='在线'
 
             }
+            var klass=item.class;
+            if(item.class=='8'){
+                  klass='法爷'
+
+            }else if(item.class=='7'){
+
+              klass='萨大爷'
+            }else if(item.class=='6'){
+
+              klass='DK'
+            }
+
+            var race=item.race;
+            if(item.race=='5'){
+                  race='亡灵'
+
+            }else if(item.race=='8'){
+                  race='巨魔'
+
+            }
+            else if(item.race=='10'){
+                  race='血精灵'
+
+            }
             return (
                 <ul>
-                    <li>  {item.name}[职业{item.class}][种族{item.race}][等级{item.level}][wow][{online}]    <a href="#">chat</a> <a href="#">voice</a> <a href="#">上线push</a></li>
+                    <li> #{item.account} {item.name}[等级{item.level}] [职业:{klass}] [种族:{race}]  <a href="#">chat</a> <a href="#">voice</a> <a href="#">上线push</a></li>
                 </ul>
 
             );
