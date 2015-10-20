@@ -30,6 +30,9 @@ var Component = React.createClass({displayName: "Component",
                           React.createElement("div", null, 
 
 
+                                  React.createElement("nav", null, 
+                                    React.createElement("a", {href: "/"}, "wow"), " | ", React.createElement("a", {href: "http://card.letus.ws/"}, "卡牌")
+                                  ), 
 
                                   this.props.children
 

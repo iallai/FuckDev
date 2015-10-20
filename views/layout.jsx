@@ -31,6 +31,9 @@ var Component = React.createClass({
                           <div>
 
 
+                                  <nav>
+                                    <a href="/">wow</a> | <a href="http://card.letus.ws/">卡牌</a>
+                                  </nav>
 
                                   {this.props.children}
 
