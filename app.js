@@ -42,7 +42,7 @@ server.register(Vision, function (err) {
         relativeTo: __dirname,
         path: 'views'
     });
-
+    
     server.route({
         method: 'GET',
         path: '/',
