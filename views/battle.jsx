@@ -13,7 +13,7 @@ var FriendsList = React.createClass({
             }
             return (
                 <ul>
-                    <li>  {item.name} 种族：{item.race} {item.level}[wow][{online}]    <a href="#">chat</a> <a href="#">voice</a> <a href="#">上线push</a></li>
+                    <li>  {item.name}[种族{item.race}][等级{item.level}][wow][{online}]    <a href="#">chat</a> <a href="#">voice</a> <a href="#">上线push</a></li>
                 </ul>
 
             );
