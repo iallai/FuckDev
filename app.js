@@ -42,42 +42,54 @@ server.register(Vision, function (err) {
         relativeTo: __dirname,
         path: 'views'
     });
-    
+
     server.route({
         method: 'GET',
         path: '/',
         handler: function (request, reply) {
-            reply.view('wow');
+          var db = request.server.plugins['hapi-sequelized'].db.sequelize;
+          db.query("SELECT account,class,race,name,online,level FROM `characters` Where online = 1", { type: db.QueryTypes.SELECT})
+              .then(function(users) {
+                  reply.view('battle',{users:users});
+          });
         }
     });
 
-    server.route({
-        method: 'GET',
-        path: '/battle',
-        handler: function (request, reply) {
-            var db = request.server.plugins['hapi-sequelized'].db.sequelize;
-            db.query("SELECT account,class,race,name,online,level FROM `characters` Where online = 1", { type: db.QueryTypes.SELECT})
-                .then(function(users) {
-                    reply.view('battle',{users:users});
-            });
-        }
-    });
-    server.route({
-        method: 'GET',
-        path: '/battle/wow',
-        handler: function (request, reply) {
-                    reply.view('wow');
-        }
-    });
-
-
-    server.route({
-        method: 'GET',
-        path: '/battle/dota2',
-        handler: function (request, reply) {
-            reply.view('dota2');
-        }
-    });
+    // server.route({
+    //     method: 'GET',
+    //     path: '/battle',
+    //     handler: function (request, reply) {
+    //         var db = request.server.plugins['hapi-sequelized'].db.sequelize;
+    //         db.query("SELECT account,class,race,name,online,level FROM `characters` Where online = 1", { type: db.QueryTypes.SELECT})
+    //             .then(function(users) {
+    //                 reply.view('battle',{users:users});
+    //         });
+    //     }
+    // });
+    // server.route({
+    //     method: 'GET',
+    //     path: '/battle/wow',
+    //     handler: function (request, reply) {
+    //       var db = request.server.plugins['hapi-sequelized'].db.sequelize;
+    //       db.query("SELECT account,class,race,name,online,level FROM `characters` Where online = 1", { type: db.QueryTypes.SELECT})
+    //           .then(function(users) {
+    //               reply.view('wow',{users:users});
+    //       });
+    //     }
+    // });
+    //
+    //
+    // server.route({
+    //     method: 'GET',
+    //     path: '/battle/dota2',
+    //     handler: function (request, reply) {
+    //       var db = request.server.plugins['hapi-sequelized'].db.sequelize;
+    //       db.query("SELECT account,class,race,name,online,level FROM `characters` Where online = 1", { type: db.QueryTypes.SELECT})
+    //           .then(function(users) {
+    //               reply.view('dota2',{users:users});
+    //       });
+    //     }
+    // });
     server.start(function (err) {
 
         if (err) {

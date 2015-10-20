@@ -31,9 +31,6 @@ var Component = React.createClass({
                           <div>
 
 
-                                  <nav>
-                                    <a href="/">首页</a> | <a href="/battle">战！</a>
-                                  </nav>
 
                                   {this.props.children}
 

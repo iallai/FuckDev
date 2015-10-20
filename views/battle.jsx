@@ -20,13 +20,7 @@ var FriendsList = React.createClass({
         });
         return (
           <div>在线好友列表
-            <select>
-            <option>所有</option>
-            <option>wow</option>
-            <option>dota</option>
-
-
-            </select>
+          
               {usersList}
           </div>
 
@@ -38,10 +32,8 @@ var Component = React.createClass({
 
         return (
             <Layout title="战！">
-                <h1>战</h1>
-                <nav>
-                  <a href="/battle/wow">WOW</a> | <a href="/battle/dota2">DOTA2</a>
-                </nav>
+                <h1>WOW</h1>
+
                 {this.props.children}
                 <hr />
                 <FriendsList users={this.props.users}></FriendsList>

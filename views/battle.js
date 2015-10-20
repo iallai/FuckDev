@@ -19,13 +19,7 @@ var FriendsList = React.createClass({displayName: "FriendsList",
         });
         return (
           React.createElement("div", null, "在线好友列表", 
-            React.createElement("select", null, 
-            React.createElement("option", null, "所有"), 
-            React.createElement("option", null, "wow"), 
-            React.createElement("option", null, "dota")
-
-
-            ), 
+          
               usersList
           )
 
@@ -37,10 +31,8 @@ var Component = React.createClass({displayName: "Component",
 
         return (
             React.createElement(Layout, {title: "战！"}, 
-                React.createElement("h1", null, "战"), 
-                React.createElement("nav", null, 
-                  React.createElement("a", {href: "/battle/wow"}, "WOW"), " | ", React.createElement("a", {href: "/battle/dota2"}, "DOTA2")
-                ), 
+                React.createElement("h1", null, "WOW"), 
+
                 this.props.children, 
                 React.createElement("hr", null), 
                 "\b", React.createElement(FriendsList, {users: this.props.users})

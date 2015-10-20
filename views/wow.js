@@ -35,10 +35,12 @@ var Component = React.createClass({displayName: "Component",
         {author: "iallai", name: "文章1"},
         {author: "shadiao", name: "文章2"}
       ];
+      
         return (
             React.createElement(Layout, null, 
                 React.createElement("h1", null, "WoW"), 
                 React.createElement(ArticleList, {data: data})
+
             )
         );
     }

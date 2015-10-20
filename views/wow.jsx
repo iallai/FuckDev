@@ -36,6 +36,7 @@ var Component = React.createClass({
         {author: "iallai", name: "文章1"},
         {author: "shadiao", name: "文章2"}
       ];
+      
         return (
             <Layout>
                 <h1>WoW</h1>
