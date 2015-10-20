@@ -47,8 +47,27 @@ server.register(Vision, function (err) {
         method: 'GET',
         path: '/',
         handler: function (request, reply) {
+          var appContext = {
+             };
+             var renderOpts = {
+                 runtimeOptions: {
+                     renderMethod: 'renderToString',
+                     encoding:'utf8'
+                 }
+             };
 
-            reply.view('index');
+             server.render('app', appContext, renderOpts, function (err, appOutput) {
+
+                 var htmlContext = {
+                     remount: appOutput,
+                     state: 'window.state = ' + JSON.stringify(appContext) + ';'
+                 };
+
+                 server.render('index', htmlContext, function (err, htmlOutput) {
+
+                     reply(htmlOutput);
+                 });
+             });
         }
     });
 

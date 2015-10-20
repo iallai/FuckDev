@@ -2,10 +2,10 @@ var React = require('react');
 var  DocumentMeta =require('react-document-meta');
 var Component = React.createClass({
 
-    componentDidMount: function () {
-        console.log("222")
-    },
+  componentDidMount: function() {
 
+      alert("ss")
+    },
     render: function () {
       var metaData = {
            title: 'Some Meta Title',
@@ -20,22 +20,28 @@ var Component = React.createClass({
          };
 
         var ss=  <DocumentMeta {...metaData} />;
-        var oMeta = document.createElement('meta');
-        oMeta.charset = 'utf-8';
-        document.getElementsByTagName('head')[0].appendChild(oMeta);
+
         return (
-            <div>
+          <html>
+                          <head>
+                              <meta charSet="utf-8"/>
+                              <title>战不解释</title>
+                          </head>
+                          <body>
+                          <div>
 
 
+                                  <nav>
+                                    <a href="/">首页</a> | <a href="/battle">战！</a>
+                                  </nav>
 
-                    <nav>
-                      <a href="/">首页</a> | <a href="/battle">战！</a>
-                    </nav>
-
-                    {this.props.children}
+                                  {this.props.children}
 
 
-            </div>
+                          </div>
+                          </body>
+                      </html>
+
         );
     }
 });
